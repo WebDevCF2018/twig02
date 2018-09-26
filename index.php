@@ -27,7 +27,6 @@ require_once "models/nosModels.php";
 // use publicController
 use Controller\publicController AS PC;
 
-
 // route content twig's files
 $loader = new Twig_Loader_Filesystem('./views');
 

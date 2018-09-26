@@ -8,6 +8,9 @@
 
 namespace Models;
 
+use Swift_SmtpTransport;
+use Swift_Mailer;
+use Swift_Message;
 
 class nosModels
 {
@@ -30,8 +33,32 @@ class nosModels
 
     public static function envoieMail(Array $datas){
         $themail = filter_var($_POST['themail'], FILTER_VALIDATE_EMAIL);
-        $thetext = htmlentities(strip_tags($_POST['thetext']),ENT_QUOTES);
+        $thetext = strip_tags($_POST['thetext']);
         $aqui = "michaeljpitz@gmail.com";
+
+        // Create the Transport
+        $transport = (new Swift_SmtpTransport('relay.skynet.be', 25))
+            ->setUsername('michael')
+            ->setPassword('')
+        ;
+
+// Create the Mailer using your created Transport
+        $mailer = new Swift_Mailer($transport);
+
+// Create a message
+        $message = (new Swift_Message('Depuis twig02'))
+            ->setFrom([$themail])
+            ->setTo([$aqui])
+            ->setBody($thetext)
+        ;
+
+// Send the message
+      return  $result = $mailer->send($message);
+
+
+/*
+
+ex version
 
         if(@mail($aqui,"test de notre site",$thetext,'From: '.$aqui . "\r\n" .
      'Reply-To: ' .$aqui. "\r\n" .
@@ -40,6 +67,7 @@ class nosModels
         }else{
             return false;
         }
+*/
     }
 
 }
