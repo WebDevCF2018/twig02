@@ -38,4 +38,4 @@ $twig = new Twig_Environment($loader, array(
 ));
 
 // navigate in the namspace PC (Controller\publicController) and call welcomeAction()
-PC::welcomeAction();
+PC::welcomeAction($twig);

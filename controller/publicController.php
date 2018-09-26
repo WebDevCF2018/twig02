@@ -10,10 +10,11 @@ use Models\nosModels AS DT;
 class publicController{
 
     // method for "acceuil"
-    public static function welcomeAction(){
+    public static function welcomeAction($twig){
         // recup datas from model
         $datas = DT::accueilDatas();
-
+        // view racine model
+        echo $twig->render("base.html.twig");
     }
 
 }
