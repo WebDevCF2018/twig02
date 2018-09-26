@@ -4,8 +4,29 @@
  */
 
 
+/*
+ *
+ * AUTOLOAD
+ *
+ */
 // autoload all classes from composer's library
 require_once "./vendor/autoload.php";
+
+// load Controllers
+require_once "controller/publicController.php";
+// load Models
+require_once "models/nosModels.php";
+
+/*
+ *
+ * end of autolaod
+ *
+ *
+ */
+
+// use publicController
+use Controller\publicController AS PC;
+
 
 // route content twig's files
 $loader = new Twig_Loader_Filesystem('./views');
@@ -16,5 +37,5 @@ $twig = new Twig_Environment($loader, array(
     'cache' => '/cache',
 ));
 
-// Controller
-require_once "controller/publicController.php";
+// navigate in the namspace PC (Controller\publicController) and call welcomeAction()
+PC::welcomeAction();
