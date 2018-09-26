@@ -21,7 +21,14 @@ class publicController{
     public static function contactAction($twig){
         // pas de formulaire envoyé
         if(!empty($_POST)){
-
+            // envoi de mail
+            $bool = DT::envoieMail($_POST);
+            // si ça a réussi
+            if($bool){
+                header("Location: ./");
+            }else{
+                header("Location: ./?content=contact&erreur=true");
+            }
         // affichage du formulaire
         }else {
             // recup form
