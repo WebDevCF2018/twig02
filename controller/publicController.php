@@ -19,9 +19,15 @@ class publicController{
 
     // method for "contact"
     public static function contactAction($twig){
-        // recup form
-        $datas = DT::formDatas();
-        echo $twig->render("form.html.twig",["recup"=>$datas]);
+        // pas de formulaire envoyé
+        if(!empty($_POST)){
+
+        // affichage du formulaire
+        }else {
+            // recup form
+            $datas = DT::formDatas();
+            echo $twig->render("form.html.twig", ["recup" => $datas]);
+        }
     }
 
 }

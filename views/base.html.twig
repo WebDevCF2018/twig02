@@ -7,7 +7,13 @@
     <h1>{% block titleh1 %}Titre par défaut{% endblock %}</h1>
     <h2>{% block titleh2 %}Sous-titre par défaut{% endblock %}</h2>
 <nav>
-    {% block menu %}<ul><li>Menu par défaut</li></ul>{% endblock %}
+    {% block menu %}
+        <ul>
+            <li><a href="./">Accueil</a></li>
+            <li><a href="./?content=contact">Contact</a></li>
+            <li><a href="./?content=map">Nous trouver</a></li>
+        </ul>
+    {% endblock %}
 </nav>
     <div id="content">
     {% block content %}<p>Du contenu par défaut</p>{% endblock %}
