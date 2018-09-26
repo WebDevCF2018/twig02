@@ -22,4 +22,9 @@ class nosModels
 
         ];
     }
+
+    public static function formDatas()
+    {
+        return ['content' => '<form action="" name="lui" method="post"><input name="themail" type="email" placeholder="Votre mail" required><br/><textarea name="thetext" placeholder="Votre message" required></textarea><br><input type="submit" value="Envoyer"></form> '];
+    }
 }

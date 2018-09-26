@@ -34,8 +34,22 @@ $loader = new Twig_Loader_Filesystem('./views');
 // we create a twig Environment
 $twig = new Twig_Environment($loader, array(
     // routing for cache
-    'cache' => '/cache',
+    // for dev, cache on comment ! 'cache' => 'cache',
 ));
 
 // navigate in the namspace PC (Controller\publicController) and call welcomeAction()
-PC::welcomeAction($twig);
+if(!isset($_GET['content'])) {
+    PC::welcomeAction($twig);
+}else{
+    // if isset $_GET['content']
+    switch($_GET['content']){
+        case "contact":
+            PC::contactAction($twig);
+            break;
+        case "map":
+
+            break;
+        default:
+            PC::welcomeAction($twig);
+    }
+}

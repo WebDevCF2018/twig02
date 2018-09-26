@@ -8,7 +8,9 @@
     <h2>{% block titleh2 %}Sous-titre par défaut{% endblock %}</h2>
 <nav>
     {% block menu %}<ul><li>Menu par défaut</li></ul>{% endblock %}
-    {% block content %}{% endblock %}
 </nav>
+    <div id="content">
+    {% block content %}<p>Du contenu par défaut</p>{% endblock %}
+    </div>
 </body>
 </html>
