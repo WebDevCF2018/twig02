@@ -1,5 +1,7 @@
 # phpstorm ignore
 /.idea/
+# netbeans ignore
+/nbproject/
 # don't ignore (!) vendor's folder
 !vendor/
 # ignore ALL (*) in vendor's folder
@@ -7,3 +9,4 @@ vendor/*
 # don't ignore (!) twig's folder and autoload.php
 !vendor/autoload.php
 !vendor/twig/
+/nbproject/private/
