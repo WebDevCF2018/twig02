@@ -1,9 +1,8 @@
 <?php
+
 /**
  * Front Controller
  */
-
-
 /*
  *
  * AUTOLOAD
@@ -32,16 +31,16 @@ $loader = new Twig_Loader_Filesystem('./views');
 
 // we create a twig Environment
 $twig = new Twig_Environment($loader, array(
-    // routing for cache
-    // for dev, cache on comment ! 'cache' => 'cache',
-));
+        // routing for cache
+        // for dev, cache on comment ! 'cache' => 'cache',
+        ));
 
 // navigate in the namspace PC (Controller\publicController) and call welcomeAction()
-if(!isset($_GET['content'])) {
+if (!isset($_GET['content'])) {
     PC::welcomeAction($twig);
-}else{
+} else {
     // if isset $_GET['content']
-    switch($_GET['content']){
+    switch ($_GET['content']) {
         case "contact":
             PC::contactAction($twig);
             break;
