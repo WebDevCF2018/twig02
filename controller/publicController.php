@@ -80,14 +80,21 @@ class publicController
 
 
                 // un problème de mail, on affiche l'erreur
-            } else if ($validator->hasWarnings()) {
-                echo 'Warning! ' . $_POST['themail'] . ' has unusual/deprecated features (result code ' . var_export($validator->getWarnings(), true) . ')';
-
-                // email non valide, on l'affiche également
             } else {
-                echo $_POST['themail'] . ' is not a valid email address (result code ' . $validator->getError() . ')';
-            }
+                // warning
+                if ($validator->hasWarnings()) {
+                    $error = 'Warning! ' . $_POST['themail'] . ' has unusual/deprecated features (result code ' . var_export($validator->getWarnings(), true) . ')';
+                    // email non valide, on l'affiche également
+                } else {
+                    $error = $_POST['themail'] . ' is not a valid email address (result code ' . $validator->getError() . ')';
+                }
 
+                // recup error with form
+                $datas = DT::formDatas();
+                echo $twig->render("error.html.twig", ["recup" => $datas,"erreur"=>$error
+                ]);
+
+            }
 
             // affichage du formulaire
         } else {
