@@ -14,7 +14,7 @@ class nosModels {
     public static function accueilDatas() {
         // return a table with datas for accueil
         return ['title' => 'Notre page d\'accueil',
-            'h1' => "Bienvenues",
+            'h1' => "Bienvenue",
             'h2' => "Sur notre site",
             'content' => ["Premier paragraphe", "Deuxième paragraphe", "Paragraphe final"]
         ];

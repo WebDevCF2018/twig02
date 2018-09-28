@@ -104,4 +104,9 @@ class publicController
         }
     }
 
+    public static function mapAction($twig)
+    {
+        echo $twig->render("map.html.twig");
+    }
+
 }

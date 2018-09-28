@@ -1,3 +1,6 @@
 {% extends "base.html.twig" %}
+{% block title %}Nous contacter{% endblock %}
+{% block titleh1 %}Nous contacter{% endblock %}
+{% block titleh2 %}Merci de remplir le formulaire ci-dessous.{% endblock %}
 {# par défaut recup.content vaut recup.content|e ou recup.content|escape donc protection maximal par défault, il faut lui indiquer de ne pas protéger la chaîne avec raw : recup.content|raw #}
 {% block content %}{{ recup.content|raw }}{% endblock %}
